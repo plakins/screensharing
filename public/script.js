@@ -25,7 +25,7 @@ socket.on('icecandidate', (candidate) => {
 window.addEventListener('load', async function() {
     try {
         const stream = await navigator.mediaDevices.getDisplayMedia({
-            audio: true
+            video: true
         });
         handleSuccess(stream);
     } catch (e) {
