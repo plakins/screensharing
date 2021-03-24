@@ -1,0 +1,1 @@
+sessionStorage.screenSharingJSExtensionId = chrome.runtime.id;
