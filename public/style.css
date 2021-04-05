@@ -16,7 +16,14 @@ video {
     object-fit: cover;
     max-width: 1000px;
     margin: 30px;
+    resize: both;
+    pointer-events: none;
 }
+
+video::-webkit-media-controls {
+    display: none;
+}
+
 button {
     border: none;
     background-color: rgba(0,0,0,.1);
@@ -25,9 +32,11 @@ button {
     cursor: pointer;
     border-radius: 3px;
 }
+
 button:hover {
     background-color: rgba(0,0,0,.15);
 }
+
 button:hover:disabled {
     background-color: rgba(0,0,0,.1);
     cursor: default;

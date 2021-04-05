@@ -23,7 +23,7 @@
   }],
   "externally_connectable": {
       "matches": [
-          "https://188.235.151.123:3000/*"
+          "https://127.0.0.1/*"
       ],
       "ids": ["*"]
   }

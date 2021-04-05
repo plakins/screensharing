@@ -1,11 +1,18 @@
 var ws = new WebSocket('wss://' + location.host + '/one2many');
 
-let pc = new RTCPeerConnection();
+const options = {
+    iceServers: [
+        { urls: "stun:178.49.101.108:3478" },
+        { urls: "stun:stun.l.google.com:19302" }
+    ]
+};
+let pc = new RTCPeerConnection(options);
 
 window.addEventListener('load', async function() {
     document.getElementById('presentor').addEventListener('click', presentor);
     document.getElementById('viewer').addEventListener('click', viewer);
     document.getElementById('stop').addEventListener('click', stop );
+    document.getElementById('fullscrean').addEventListener('click', fullscrean)
 });
 
 window.addEventListener('beforeunload', function() {
@@ -66,7 +73,6 @@ async function handleGetMedia(error, stream) {
         }
         return;
     }
-    console.log('Successfuly get media stream');
 
     setButtonsDisableState(true);
     document.getElementById('video').srcObject = stream;
@@ -204,6 +210,19 @@ function getMedia(callback) {
             }
         }
     );
+}
+
+function fullscrean() {
+    const video = document.getElementById('video');
+    if (video.requestFullscreen) {
+        video.requestFullscreen();
+    } else if (video.mozRequestFullScreen) {
+        video.mozRequestFullScreen();
+    } else if (video.webkitRequestFullscreen) {
+        video.webkitRequestFullscreen();
+    } else if (video.msRequestFullscreen) { 
+        video.msRequestFullscreen();
+    }
 }
 
 function setButtonsDisableState(value) {

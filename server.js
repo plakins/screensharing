@@ -26,8 +26,8 @@ var https = require('https');
 
 var argv = minimist(process.argv.slice(2), {
     default: {
-        as_uri: 'https://188.235.151.123:3000/',
-        ws_uri: 'ws://188.235.151.123:8888/kurento'
+        as_uri: 'https://127.0.0.1:3000/',
+        ws_uri: 'ws://127.0.0.1:8888/kurento'
     }
 });
 
