@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./popup.css">
+</head>
+<body>
+    <header class="header">
+        <svg width="67" height="27" viewBox="0 0 96 34">
+            <g class="logo__group-3dq" fill-rule="evenodd">
+                <path fill="#0af" d="M6.408 0L4.805 4.404h22.214L28.622 0H6.408zM4.003 6.605L2.4 11.008h22.214l1.603-4.403H4.003zm-2.4 6.605L0 17.613h22.214l1.602-4.403H1.603z"></path>
+                <path fill="#0a2896" d="M46.804 18.946v.091c1.005.366 1.965 1.006 2.468 1.417 1.554 1.28 2.24 2.971 2.24 5.165 0 3.612-1.92 6.217-5.074 7.04-.96.274-1.965.366-3.84.366h-9.552V6.605h8.456c1.737 0 2.925.091 3.976.365 3.063.823 5.074 2.926 5.074 6.262 0 1.783-.64 3.292-1.69 4.297a6.409 6.409 0 0 1-2.058 1.417zm-8.456 2.788v6.948h3.657c1.096 0 2.102-.09 2.834-.777.731-.686 1.051-1.554 1.051-2.697 0-.868-.229-1.69-.686-2.285-.777-.96-1.737-1.189-3.382-1.189h-3.474zm-.046-4.57h2.971c.914 0 1.371 0 1.828-.138 1.235-.366 2.012-1.462 2.012-2.97 0-1.783-.823-2.56-2.012-2.926-.503-.137-1.005-.183-2.01-.183h-2.789v6.216zm21.163 15.861V11.038h-7.633V6.605h21.21l-1.509 4.433h-6.766v21.987h-5.302zm15.221 0V6.605h17.187l-1.508 4.433H79.943v5.851h4.251c3.428 0 5.211.823 6.445 1.874.96.823 2.605 2.651 2.605 6.263 0 3.565-1.69 5.53-3.108 6.536-1.645 1.142-3.382 1.463-6.902 1.463h-8.548zm5.257-4.434h3.977c1.508 0 2.422-.366 3.062-1.189.32-.41.777-1.143.777-2.514 0-1.37-.457-2.33-1.37-3.017-.549-.41-1.28-.639-2.515-.639h-3.93v7.36z"></path>
+            </g>
+        </svg>
+    </header>
+    <div class="container">
+        <main class="main">
+            <div>
+                <input type="checkbox" id="toggle" class="toggle__input">
+                <label class="toggle" for="toggle">
+                    <a class="toggle__anchor" tabindex="-1" href="#"></a>
+                    <div class="toggle__label">Разрешить демонстрацию экрана</div>
+                    <span class="toggle__box">
+                        <span class="toggle__circle"></span>
+                    </span>
+                </label>
+            </div>
+        </main>
+        <footer class="footer">
+            <span class="footer__text">Для демонстраци экрана будет доступна только текущая вкладка браузера</span>
+        </footer>
+    </div>
+    <script src="popup.js"></script>
+</body>
+</html>

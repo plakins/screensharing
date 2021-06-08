@@ -1,0 +1,123 @@
+body {
+    width: 320px;
+    font-family: Roboto, sans-serif;
+    padding: 0;
+    margin: 0;
+}
+
+.container {
+    padding: 24px;
+}
+
+.header {
+    background-color: #f7f7f7;
+    padding: 12px 24px;
+}
+
+.main {
+    padding-bottom: 16px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.text {
+    color: #111314;
+    font-family: "Roboto", sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+}
+
+.toggle {
+    position: relative;
+    align-items: center;
+    cursor: pointer;
+    display: inline-flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    position: relative;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    vertical-align: top;
+}
+
+.toggle__input {
+    height: 0;
+    margin: 0;
+    opacity: 0;
+    padding: 0;
+    width: 0;
+}
+
+.toggle__anchor {
+    opacity: 0;
+}
+
+.toggle__label {
+    margin-right: 16px;
+    color: #5d717a;
+    font-family: Roboto,sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+}
+
+.toggle:hover .toggle__label {
+    color: #3e4b52;
+}
+
+.toggle__box {
+    background-color: #9aaeb8;
+    flex: 0 0 28px;
+    height: 16px;
+    width: 28px;
+    border-radius: 10px;
+    box-sizing: border-box;
+    cursor: pointer;
+    position: relative;
+    transition: .15s ease-out;
+}
+
+.toggle:hover .toggle__box {
+    background-color: #5d717a;
+}
+
+.toggle__input:checked ~ .toggle .toggle__box {
+    background-color: #009ceb;
+}
+
+.toggle__input:checked ~ .toggle:hover .toggle__box {
+    background-color: #0af;
+}
+
+.toggle__circle {
+    height: 12px;
+    width: 12px;
+    left: 2px;
+    top: 50%;
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: 0 1px 4px 0 rgb(13 19 26 / 12%), 0 1px 2px 0 rgb(13 19 26 / 12%);
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: .15s ease-out;
+}
+
+.toggle__input:checked ~ .toggle .toggle__circle {
+    left: 14px;
+}
+
+.footer {
+    padding-top: 16px;
+}
+
+
+.footer__text {
+    color: #899aa3;
+    font-family: "Roboto", sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 18px;
+}

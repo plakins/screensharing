@@ -1,6 +1,6 @@
 {
-  "name": "Screensharing",
-  "description": "Screensharing utility for tab capture",
+  "name": "ВТБ Бизнес-онлайн",
+  "description": "Расширение для демонстрации экрана в ВТБ Бизнес-онлайн",
   "version": "0.0.1",
   "manifest_version": 2,
   "minimum_chrome_version": "34",
@@ -9,10 +9,15 @@
   "permissions": [
     "desktopCapture",
     "tabCapture",
-    "activeTab"
+    "activeTab",
+    "storage"
   ],
   "browser_action": {
-    "default_title": "Screensharing"
+    "default_title": "ВТБ Бизнес-онлайн",
+    "default_popup": "popup.html",
+    "default_icon": {
+      "32": "favicon.png"
+    }
   },
   "background": {
     "scripts": ["background.js"]
@@ -23,7 +28,9 @@
   }],
   "externally_connectable": {
       "matches": [
-          "https://127.0.0.1/*"
+          "https://127.0.0.1:8000/*",
+          "http://127.0.0.1:8000/*",
+          "https://188.235.151.123:3000/*"
       ],
       "ids": ["*"]
   }
