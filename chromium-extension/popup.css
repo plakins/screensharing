@@ -3,6 +3,17 @@ body {
     font-family: Roboto, sans-serif;
     padding: 0;
     margin: 0;
+    position: relative;
+}
+
+.mask {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    z-index: 10;
 }
 
 .container {

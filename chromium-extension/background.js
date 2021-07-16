@@ -27,26 +27,73 @@ chrome.runtime.onMessageExternal.addListener(function (message, sender, callback
     }
 });
 
+chrome.runtime.onMessage.addListener(function(msg, sender, sendResponse) {
+    if (msg.text == "getTabId") {
+        sendResponse({tab: sender.tab.id});
+    }
+});
+
+
+let popupPort;
+let contentPort = {};
+
 chrome.extension.onConnect.addListener(function(port) {
-    port.onMessage.addListener(function(data) {
-        const message = JSON.parse(data);
+    if (port.name === 'VTB Screensharing') {
+        popupPort = port;
+        port.onMessage.addListener(function(data) {
+            const message = JSON.parse(data);
+    
+            switch (message.type) {
+                case 'IS_ALLOWED':
+                    if (!allowedTabs[message.id]) {
+                        allowedTabs[message.id] = false;
+                    }
+                    const msg = {
+                        type: 'IS_ALLOWED',
+                        id: message.id,
+                        value: allowedTabs[message.id]
+                    }
+    
+                    port.postMessage(JSON.stringify(msg));
+                    break;
+                case 'CHANGE':
+                    allowedTabs[message.id] = message.value;
+                    break;
 
-        switch (message.type) {
-            case 'IS_ALLOWED':
-                if (!allowedTabs[message.id]) {
-                    allowedTabs[message.id] = false;
-                }
-                const msg = {
-                    type: 'IS_ALLOWED',
-                    id: message.id,
-                    value: allowedTabs[message.id]
-                }
+                case 'LOCALE':
+                    if (contentPort[message.id]) {
+                        const msg = {
+                            type: 'LOCALE'
+                        }
+                        contentPort[message.id].postMessage(JSON.stringify(msg));
+                    } else {
+                        const msg = {
+                            type: 'LOCALE',
+                            value: 'ru_RU'
+                        }
+                        port.postMessage(JSON.stringify(msg));
+                    }
+            }
+        });
+    }
 
-                port.postMessage(JSON.stringify(msg));
-                break;
-            case 'CHANGE':
-                allowedTabs[message.id] = message.value;
-                break;
-        }
-    });
+    if (port.name === 'VTB Screensharing content') {
+        port.onMessage.addListener(function(data) {
+            const message = JSON.parse(data);
+            switch (message.type) {
+                case 'TAB_ID':
+                    contentPort[message.id] = port;
+                    break;
+                case 'LOCALE':
+                    if (popupPort) {
+                        const msg = {
+                            type: 'LOCALE',
+                            value: message.locale
+                        }
+                        popupPort.postMessage(JSON.stringify(msg));
+                    }
+                    break;
+            }
+        });
+    }
 })

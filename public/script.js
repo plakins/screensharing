@@ -50,7 +50,6 @@ function handleAnswer(message) {
             type: 'answer',
             sdp: message.sdpAnswer
         });
-		pc.setRemoteDescription(answer);
 	}
 }
 
