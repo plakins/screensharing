@@ -177,12 +177,12 @@ function bufferizeCandidates(pc, onerror) {
 }
 
 function getMedia(callback) {
-    if (!sessionStorage.screenSharingJSExtensionId) {
+    if (!sessionStorage.VTBDBOScreensharingExtensionId) {
         alert('Установите расширение');
         return;
     }
     chrome.runtime.sendMessage(
-        sessionStorage.screenSharingJSExtensionId,
+        sessionStorage.VTBDBOScreensharingExtensionId,
         {type: 'getTabCature', id: 1, options: ['tab']},
         null,
         async function (data) {

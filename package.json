@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon server.js"
+    "start": "nodemon server.js",
+    "pm2": "pm2 start server.js --watch",
+    "pm2-list": "pm2 list",
+    "pm2-stop": "pm2 stop all"
   },
   "keywords": [],
   "author": "",
@@ -16,6 +19,7 @@
     "ws": "^7.1.0"
   },
   "devDependencies": {
-    "nodemon": "^2.0.7"
+    "nodemon": "^2.0.7",
+    "pm2": "^5.1.2"
   }
 }
